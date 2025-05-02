@@ -1,10 +1,10 @@
 import React from 'react';
 import { FlatList, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import useProductStore from '../store/productStore';
+// import useProductStore from '../store/productStore';
 
-const ProductList = ({ navigation }) => {
-  const products = useProductStore(state => state.products);
-  console.log('PRODUCTS:--', products);
+const ProductList = ({ navigation, productList }) => {
+  // const products = useProductStore?.getState()?.products;
+  console.log('PRODUCTS:--', productList);
 
   const renderItem = ({ item }) => (
     <TouchableOpacity
@@ -18,7 +18,7 @@ const ProductList = ({ navigation }) => {
 
   return (
     <FlatList
-      data={products}
+      data={productList}
       renderItem={renderItem}
       keyExtractor={item => item.id.toString()}
       ListEmptyComponent={<Text>No products available</Text>}
